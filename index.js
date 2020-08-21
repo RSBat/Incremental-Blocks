@@ -74,6 +74,8 @@ $(function (){
   totalTime = 0;
   totalDisplayTime = 0;
 
+  $blockCount = $('#blockCount');
+
   function copyToClipboard(val) {
     var t = document.createElement("textarea");
     document.body.appendChild(t);
@@ -286,7 +288,7 @@ $(function (){
     bpcM = overallBlockM*(buildingMult)*((upgradeHave[16] == 1) ? 1.5 : 1)*((upgradeHave[45] == 1) ? 7500 : 1)*((upgradeHave[48] == 1) ? 9 : 1)*((bActive[0] == 0) ? bActive[1] : 1)*runeBuffCalc(0, runeLevels[0])*activeRolledBoost[0];
     blockPC = bpcP*bpcM+((((upgradeHave[13] == 1) ? 0.05 : 0)+((upgradeHave[29] == 1) ? 0.1 : 0)+((upgradeHave[37] == 1) ? 0.15 : 0)+((upgradeHave[78] == 1) ? 0.2 : 0)+((upgradeHave[79] == 1) ? 0.25 : 0))*blockPS)*((bActive[0] == 0) ? bActive[1] : 1)/((bActive[0] == 1) ? bActive[1] : 1)/activeRolledBoost[1];
     normalBlock();
-    $('#blockCount').html(function (index,html) {
+    $blockCount.html(function (index,html) {
       reg = /0/gi;
       strReg1 = notation(block);
       return strReg1.replace(reg, '<span class="num0">$&</span>');
@@ -633,7 +635,7 @@ $(function (){
     $('#powerNum').html(function (index,html) {
       return notation(power);
     });
-    $('#blockCount').html(function (index,html) {
+    $blockCount.html(function (index,html) {
       reg = /0/gi;
       strReg1 = notation(block);
       return strReg1.replace(reg, '<span class="num0">$&</span>');
