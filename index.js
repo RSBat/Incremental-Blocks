@@ -564,24 +564,26 @@ $(function (){
   }
   function displyRune() {
     extraRuneLevel = ((rotationTreeHave[15] == 1) ? 2 :0)
-    for (var i = 0; i < 10; i++) {
-      if (i == 0 || runeLevels[i-1] >= 1 || runeLevels[9] >= 1) {
-        $('.rune:eq(' + i + ')').show();
-      } else {
-        $('.rune:eq(' + i + ')').hide();
+    if (middleMenu == 1) {
+      for (var i = 0; i < 10; i++) {
+        if (i == 0 || runeLevels[i-1] >= 1 || runeLevels[9] >= 1) {
+          $('.rune:eq(' + i + ')').show();
+        } else {
+          $('.rune:eq(' + i + ')').hide();
+        }
       }
-    }
-    if (screenWidthBef != screenWidthNow || screenHeightBef != screenHeightNow) {
-      $('#runeRotation').css({width: screenHeightNow*0.508, height: screenHeightNow*0.508, 'margin-left': (screenWidthNow*0.59-screenHeightNow*0.508)/2});
-      $('#runeRortationOffset').css({width: screenHeightNow*0.508, height: screenHeightNow*0.508});
-      $('#runeLine').css({width: screenHeightNow*0.508, height: screenHeightNow*0.508});
-      $('#runes').css({width: screenHeightNow*0.508, height: screenHeightNow*0.508});
-      clearTimeout(runeTimeOut);
-      clearTimeout(runeTimeOut2);
-      runePositionSet();
-      runeTimeOut2 = setTimeout( function (){
-        drawAllRuneLine();
-      }, 75);
+      if (screenWidthBef != screenWidthNow || screenHeightBef != screenHeightNow) {
+        $('#runeRotation').css({width: screenHeightNow*0.508, height: screenHeightNow*0.508, 'margin-left': (screenWidthNow*0.59-screenHeightNow*0.508)/2});
+        $('#runeRortationOffset').css({width: screenHeightNow*0.508, height: screenHeightNow*0.508});
+        $('#runeLine').css({width: screenHeightNow*0.508, height: screenHeightNow*0.508});
+        $('#runes').css({width: screenHeightNow*0.508, height: screenHeightNow*0.508});
+        clearTimeout(runeTimeOut);
+        clearTimeout(runeTimeOut2);
+        runePositionSet();
+        runeTimeOut2 = setTimeout( function (){
+          drawAllRuneLine();
+        }, 75);
+      }
     }
     totRuneLevel = 0;
     for (var i = 0; i < 10; i++) {
