@@ -185,6 +185,7 @@ $(function (){
       saveFile[i] = eval(varData[i]);
     }
     copyToClipboard(btoa(JSON.stringify(saveFile)));
+    alert(btoa(JSON.stringify(saveFile)));
   }
   function gameImport() {
     var inputedSaveN = prompt('Import Save', '');
