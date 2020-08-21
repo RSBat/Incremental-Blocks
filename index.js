@@ -69,6 +69,10 @@ $(function (){
   blockUsageEff = 1;
   genSelected = 0;
   buEff = 1;
+  measures = 0;
+  measuresDisplay = 0;
+  totalTime = 0;
+  totalDisplayTime = 0;
 
   function copyToClipboard(val) {
     var t = document.createElement("textarea");
@@ -1867,7 +1871,9 @@ $(function (){
     lastTick = timeNow;
       
     var tEnd = performance.now();
-    console.log("Main interval: " + (tEnd - tStart));
+    totalTime += tEnd - tStart;
+    measures += 1;
+    console.log("Main interval avg: " + (totalTime / measures));
   }, 50);
   setInterval( function (){
     var tStart = performance.now();
@@ -1888,7 +1894,9 @@ $(function (){
     }
       
     var tEnd = performance.now();
-    console.log("Display interval: " + (tEnd - tStart));
+    totalDisplayTime += tEnd - tStart;
+    measuresDisplay += 1;
+    console.log("Display interval avg: " + (totalDisplayTime / measuresDisplay));
   }, 500);
   setInterval( function (){
     beyondAuto();
