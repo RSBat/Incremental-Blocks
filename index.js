@@ -397,6 +397,9 @@ $(function (){
   }
   function displayBuild() {
     calculateBuild();
+    if (middleMenu != 0) {
+      return;
+    }
     $('#buildPerClick').html(function (index,html) {
       return notation(bupc);
     });
