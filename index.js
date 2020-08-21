@@ -409,6 +409,7 @@ $(function (){
     $('#buildPerClick').html(function (index,html) {
       return notation(bupc);
     });
+    var $buildBlock = $('.buildBlock');
     for (var i = 0; i < 36; i++) {
       colorStr = '';
       extraDeco = '';
@@ -446,7 +447,7 @@ $(function (){
             colorStr += colorBland;
           }
         }
-        $('.buildBlock:eq(' + i + ')').attr({
+        $buildBlock.eq(i).attr({
           'style' : 'background-color: rgba(' + colorStr + ');' + extraDeco
         });
       } else {
@@ -469,7 +470,7 @@ $(function (){
         } else {
           colorStr = '0, 0, 0, 0'
         }
-        $('.buildBlock:eq(' + i + ')').attr({
+        $buildBlock.eq(i).attr({
           'style' : 'background-color: rgba(' + colorStr + ');' + extraDeco
         });
       }
