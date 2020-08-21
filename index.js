@@ -75,6 +75,10 @@ $(function (){
   totalDisplayTime = 0;
 
   $blockCount = $('#blockCount');
+  $togglePower = $('#togglePower');
+  $rebuildNum = $('#rebuildNum');
+  $rebuildMult = $('#rebuildMult');
+  $powerNum = $('#powerNum');
 
   function copyToClipboard(val) {
     var t = document.createElement("textarea");
@@ -409,8 +413,8 @@ $(function (){
       colorStr = '';
       extraDeco = '';
       if (buildings < 20 || runeLevels[6] == 0) {
-        $('#rebuildNum').hide();
-        $('#rebuildMult').hide();
+        $rebuildNum.hide();
+        $rebuildMult.hide();
         if (buildingShape[buildingNow][i] != 0) {
           thisBlockValue = baseBuilding*10**buildingShape[buildingNow][i];
         } else {
@@ -446,8 +450,8 @@ $(function (){
           'style' : 'background-color: rgba(' + colorStr + ');' + extraDeco
         });
       } else {
-        $('#rebuildNum').show();
-        $('#rebuildMult').show();
+        $rebuildNum.show();
+        $rebuildMult.show();
         colorStr = '';
         thisBlockValue = baseBuilding*10**(buildingShape[buildingNow][i]-1);
         if (buildingShape[buildingNow][i] != 0) {
@@ -615,16 +619,16 @@ $(function (){
         powerPregessDisp = powerProgress;
       }
       if (blockPS > ppsCap*blockUsageM) {
-        $('#togglePower').css('background', 'linear-gradient(90deg, rgba(71, 237, 126, 0.3) ' + powerPregessDisp*100 + '% ' + powerPregessDisp*100 + '%, #3f4d44 ' + powerPregessDisp*100 + '%)');
+        $togglePower.css('background', 'linear-gradient(90deg, rgba(71, 237, 126, 0.3) ' + powerPregessDisp*100 + '% ' + powerPregessDisp*100 + '%, #3f4d44 ' + powerPregessDisp*100 + '%)');
       } else {
         if (block > thisBulk*blockUsageM) {
-          $('#togglePower').css('background', 'linear-gradient(90deg, rgba(160, 237, 71, 0.3) ' + powerPregessDisp*100 + '% ' + powerPregessDisp*100 + '%, #444d3b ' + powerPregessDisp*100 + '%)');
+          $togglePower.css('background', 'linear-gradient(90deg, rgba(160, 237, 71, 0.3) ' + powerPregessDisp*100 + '% ' + powerPregessDisp*100 + '%, #444d3b ' + powerPregessDisp*100 + '%)');
         } else {
-          $('#togglePower').css('background', 'linear-gradient(90deg, rgba(237, 71, 71, 0.3) ' + powerPregessDisp*100 + '% ' + powerPregessDisp*100 + '%, #664e4e ' + powerPregessDisp*100 + '%)');
+          $togglePower.css('background', 'linear-gradient(90deg, rgba(237, 71, 71, 0.3) ' + powerPregessDisp*100 + '% ' + powerPregessDisp*100 + '%, #664e4e ' + powerPregessDisp*100 + '%)');
         }
       }
     } else {
-      $('#togglePower').css('background', 'linear-gradient(90deg, rgba(237, 179, 71, 0.3) ' + powerPregessDisp*100 + '% ' + powerPregessDisp*100 + '%, #595141 ' + powerPregessDisp*100 + '%)');
+      $togglePower.css('background', 'linear-gradient(90deg, rgba(237, 179, 71, 0.3) ' + powerPregessDisp*100 + '% ' + powerPregessDisp*100 + '%, #595141 ' + powerPregessDisp*100 + '%)');
     }
     $('#togglePowerBlockNum').html(function (index,html) {
       return notation(powerBulkM*blockUsageM*Math.pow(2, powerBulkLevel));
@@ -632,7 +636,7 @@ $(function (){
     $('#togglePowerPowerNum').html(function (index,html) {
       return notation(powerBulkM*Math.pow(2, powerBulkLevel), 2);
     });
-    $('#powerNum').html(function (index,html) {
+    $powerNum.html(function (index,html) {
       return notation(power);
     });
     $blockCount.html(function (index,html) {
