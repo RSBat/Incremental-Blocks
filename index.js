@@ -1836,6 +1836,8 @@ $(function (){
   });
 
   setInterval( function (){
+    var tStart = performance.now();
+      
     timeNow = new Date().getTime();
     screenWidthNow = $(window).width();
     screenHeightNow = $(window).height();
@@ -1862,8 +1864,13 @@ $(function (){
     screenWidthBef = screenWidthNow;
     screenHeightBef = screenHeightNow;
     lastTick = timeNow;
+      
+    var tEnd = performance.now();
+    console.log("Main interval: " + (tEnd - tStart));
   }, 50);
   setInterval( function (){
+    var tStart = performance.now();
+      
     displayUpgrade();
     displayBuild();
     gameSave();
@@ -1878,6 +1885,9 @@ $(function (){
         return 'reset';
       });
     }
+      
+    var tEnd = performance.now();
+    console.log("Display interval: " + (tEnd - tStart));
   }, 500);
   setInterval( function (){
     beyondAuto();
