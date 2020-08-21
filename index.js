@@ -318,10 +318,11 @@ $(function (){
         upgradeHaveCount++;
       }
     }
+    var $upgradeContent = $('.upgradeContent');
     if (upgradeHave[97] == 1 && upgradeHave[98] == 1) {
-      $('.upgradeContent:eq(0)').addClass('mystUpgrade');
+      $upgradeContent.eq(0).addClass('mystUpgrade');
     } else {
-      $('.upgradeContent:eq(0)').removeClass('mystUpgrade');
+      $upgradeContent.eq(i).removeClass('mystUpgrade');
     }
     if (middleMenu == 0) {
       $('#upgradeOrign').show();
@@ -338,16 +339,16 @@ $(function (){
     }
     for (var i = 0; i < upgradeNumShift.length; i++) {
       if (upgradeNumShift[i] != -1) {
-        $('.upgradeContent:eq(' + i + ')').show();
+        $upgradeContent.eq(i).show();
         if (upgradeCostShift[i] <= block) {
-          $('.upgradeContent:eq(' + i + ')').removeClass('upN');
-          $('.upgradeContent:eq(' + i + ')').addClass('upY');
+          $upgradeContent.eq(i).removeClass('upN');
+          $upgradeContent.eq(i).addClass('upY');
         } else {
-          $('.upgradeContent:eq(' + i + ')').removeClass('upY');
-          $('.upgradeContent:eq(' + i + ')').addClass('upN');
+          $upgradeContent.eq(i).removeClass('upY');
+          $upgradeContent.eq(i).addClass('upN');
         }
       } else {
-        $('.upgradeContent:eq(' + i + ')').hide();
+        $upgradeContent.eq(i).hide();
       }
     }
     $('.upgradeContent > div:nth-child(1)').html(function (index,html) {
