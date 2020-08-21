@@ -652,15 +652,16 @@ $(function (){
     for (var i = 0; i < 100; i++) {
       totMystUp += mystLevels[i];
     }
+    var $mystUpgradeContent = $('.mystUpgradeContent');
     for (var i = 0; i < 12; i++) {
       if (mystUnlock[i] < totalBlock) {
-        $('.mystUpgradeContent:eq(' + i + ')').show();
+        $mystUpgradeContent.eq(i).show();
         upgradeResThis = eval(mystRes[i][0]);
         upgradeCostThis = eval(mystUpgradeCost(i, mystLevels[i]));
         if (upgradeResThis >= upgradeCostThis) {
-          $('.mystUpgradeContent:eq(' + i + ')').removeClass('upN').addClass('upY');
+          $mystUpgradeContent.eq(i).removeClass('upN').addClass('upY');
         } else {
-          $('.mystUpgradeContent:eq(' + i + ')').removeClass('upY').addClass('upN');
+          $mystUpgradeContent.eq(i).removeClass('upY').addClass('upN');
         }
         $('.mystUpgradeContent:eq(' + i + ') > div:eq(1) > span').html(function (index,html) {
           return notation((i != 3) ? upgradeCostThis : upgradeCostThis/3600);
@@ -669,7 +670,7 @@ $(function (){
           return mystLevels[i];
         });
       } else {
-        $('.mystUpgradeContent:eq(' + i + ')').hide();
+        $mystUpgradeContent.eq(i).hide();
       }
     }
   }
